@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "name": "AiOMP / IS RB Web Components",
+    "status": "figma-observed"
+  },
+  "components": [
+    {
+      "name": "Button",
+      "description": "Triggers primary, secondary, text, icon-only, block, and loading actions.",
+      "variants": ["primary dark", "default fill", "outline", "dashed", "text", "icon-only", "block", "loading", "error theme"],
+      "states": ["default", "hover", "active", "disabled", "loading"],
+      "sizes": {
+        "small": {"font_size": 12, "line_height": 20, "padding": "2px 8px"},
+        "medium": {"font_size": 14, "line_height": 22, "padding": "5px 16px"},
+        "large": {"font_size": 16, "line_height": 24, "padding": "8px 24px"},
+        "icon": {"width": 32, "height": 32}
+      },
+      "properties": ["type", "state", "size", "theme", "shape", "loading", "disabled", "icon", "block"],
+      "usage_rules": ["Use #222222 for primary actions.", "Use 4px radius for regular buttons.", "Use 16px radius for pill buttons.", "Use 8px icon/text gap.", "Use 16px loading icon."],
+      "anti_patterns": ["Do not use blue as default primary action color.", "Do not place multiple competing primary buttons in one action group."]
+    },
+    {
+      "name": "Input",
+      "description": "Text entry component for forms and search-like input scenarios.",
+      "variants": ["basic", "textarea", "addon", "group", "clearable", "password", "borderless"],
+      "states": ["default", "hover", "focus", "disabled", "success", "warning", "error"],
+      "sizes": {
+        "large": {"height": 40},
+        "medium": {"height": 32},
+        "small": {"height": 24}
+      },
+      "properties": ["type", "state", "size", "clearable", "password", "borderless", "disabled", "addon"],
+      "usage_rules": ["Use #DCDCDC as default border.", "Use #222222 for hover and focus border.", "Use #EEEEEE focus shadow.", "Use #F5F7F9 disabled background."],
+      "anti_patterns": ["Do not separate validation feedback from the input.", "Do not use borderless input where the surrounding structure is unclear."]
+    },
+    {
+      "name": "Search",
+      "description": "Search input with optional clear, batch, autocomplete, custom popup, and history behavior.",
+      "variants": ["basic", "borderless", "clearable", "batch", "autocomplete", "custom popup", "history", "left icon", "right icon"],
+      "states": ["default", "hover", "focus", "disabled", "popup open"],
+      "sizes": {
+        "inherits": "Input size scale"
+      },
+      "properties": ["state", "size", "clearable", "icon_position", "popup", "history", "disabled"],
+      "usage_rules": ["Follow Input border and size rules.", "Use upper-layer shadow for autocomplete and custom popups.", "Keep popup visually attached to the input."],
+      "anti_patterns": ["Do not display detached popup content without a clear relationship to the search input."]
+    },
+    {
+      "name": "Form",
+      "description": "Structured data entry pattern composed from inputs, selects, radios, checkboxes, switches, textareas, tooltips, and buttons.",
+      "variants": ["right-aligned label", "left-aligned label", "top-aligned label", "vertical", "inline"],
+      "states": ["default", "required", "error", "warning", "success", "disabled"],
+      "sizes": {
+        "label_width": 80,
+        "label_control_gap": 16,
+        "item_gap": 24,
+        "inline_gap": "120; TODO: confirm"
+      },
+      "properties": ["layout", "label_align", "label_width", "required", "help", "validation", "disabled"],
+      "usage_rules": ["Use 80px label width by default.", "Use 16px label-control gap.", "Use 24px vertical item gap.", "Use #FF1432 for required marker."],
+      "anti_patterns": ["Do not use inconsistent label widths within one form section.", "Do not place validation messages far from their controls."]
+    },
+    {
+      "name": "Alert",
+      "description": "Inline notice block for information that needs user attention.",
+      "variants": ["basic", "with icon", "closable", "custom close", "with action", "with description", "collapsible"],
+      "states": ["info", "success", "warning", "error"],
+      "sizes": {
+        "icon": 20,
+        "close_icon": 16,
+        "radius": 6,
+        "gap": 8,
+        "padding": "24px 16px"
+      },
+      "properties": ["type", "icon", "closable", "action", "description", "collapsible"],
+      "usage_rules": ["Use Alert for inline persistent notices.", "Use semantic backgrounds for info/success/warning/error.", "Use #0052D9 for info action links."],
+      "anti_patterns": ["Do not use Alert as a floating operation notification; use Message instead."]
+    },
+    {
+      "name": "Message",
+      "description": "Lightweight global feedback after user operations.",
+      "variants": ["info", "question", "success", "warning", "error", "loading", "closable"],
+      "states": ["open", "closable", "loading"],
+      "sizes": {
+        "width": "auto",
+        "padding": "16px 13px",
+        "radius": 6,
+        "icon": 20,
+        "gap": 8
+      },
+      "properties": ["type", "closable", "loading"],
+      "usage_rules": ["Use white surface with 0.5px #DCDCDC border.", "Use Shadow-3 elevation.", "Keep message size content-adaptive."],
+      "anti_patterns": ["Do not use Message for persistent inline content or complex actions."]
+    },
+    {
+      "name": "Dialog",
+      "description": "Temporary focused window for user response without replacing the full task flow.",
+      "variants": ["basic", "with separator", "with icon", "without close", "fullscreen", "info", "warning", "error", "success"],
+      "states": ["open", "close normal", "close hover", "close active"],
+      "sizes": {
+        "default_width": 480,
+        "min_width": 480,
+        "max_width": 960,
+        "radius": 9,
+        "padding": 32,
+        "footer_gap": 8
+      },
+      "properties": ["type", "icon", "closable", "separator", "fullscreen", "width"],
+      "usage_rules": ["Use 16px/24px semibold title.", "Use 14px/22px content.", "Right-align footer actions.", "Use #E7E7E7 separator lines."],
+      "anti_patterns": ["Do not use Dialog for contextual side workflows; use Drawer."]
+    },
+    {
+      "name": "Table",
+      "description": "Structured data display for organization, comparison, search, filtering, sorting, and analysis.",
+      "variants": ["basic", "border", "zebra", "fixed header", "fixed column", "fixed footer", "fixed header and footer", "expandable", "merged rows/columns", "adjustable column width", "multi-level header", "row drag sort", "column drag sort", "custom columns", "single select", "multi select", "sortable", "filterable", "loading"],
+      "states": ["default", "row hover", "selected", "sort ascending", "sort descending", "filter active", "loading", "empty", "zero value"],
+      "sizes": {
+        "default_header_height": 40,
+        "default_row_height": 40,
+        "density": [36, 40, 46, 54],
+        "pagination_height": 64
+      },
+      "properties": ["density", "bordered", "zebra", "fixed_header", "fixed_column", "selection", "sortable", "filterable", "loading", "empty"],
+      "usage_rules": ["Use 40px as default header and row height.", "Use Tooltip for truncated cell content.", "Show active filter state and clear action.", "Keep pagination connected to table."],
+      "anti_patterns": ["Do not use arbitrary row heights outside observed density options.", "Do not hide active filters without visible condition display."]
+    },
+    {
+      "name": "Tag",
+      "description": "Lightweight marker for classification, selection, or business status.",
+      "variants": ["basic", "icon", "deletable", "addable", "selectable CheckTag", "dark", "light", "outline", "light-outline"],
+      "states": ["normal", "hover", "active", "disabled", "selected", "deletable disabled"],
+      "sizes": {
+        "small": {"font_size": 12, "line_height": 20, "padding": "0 4px"},
+        "medium": {"font_size": 12, "line_height": 20, "padding": "2px 8px"},
+        "large": {"font_size": 14, "line_height": 22, "padding": "5px 12px"},
+        "icon": 14,
+        "radius": 3
+      },
+      "properties": ["type", "theme", "size", "state", "icon", "closable", "selected"],
+      "usage_rules": ["Use #F3F3F4 for default tag background.", "Use #222222 for selected CheckTag.", "Use semantic tag colors for success/warning/danger.", "Use 4px icon/text gap and 8px text/close gap."],
+      "anti_patterns": ["Do not use tags as primary action buttons.", "Do not invent new semantic colors when existing tag themes cover the status."]
+    },
+    {
+      "name": "SidebarNavigation",
+      "description": "Persistent left-side navigation for dashboard and workbench pages.",
+      "variants": ["top-level with icon and collapse arrow", "top-level with icon only", "sub-item default", "sub-item selected", "expanded group", "collapsed group"],
+      "states": ["default", "selected", "expanded", "collapsed", "hover; TODO: confirm", "disabled; TODO: confirm"],
+      "sizes": {
+        "sidebar_area_width_reference": 160,
+        "sidebar_width_min": 192,
+        "sidebar_width_preferred": "clamp(200px, 14vw, 256px)",
+        "sidebar_width_large_screen": 240,
+        "sidebar_width_max": 280,
+        "sidebar_width_collapsed": 64,
+        "sidebar_width_rule": "adaptive; 160 is historical narrow reference only, not the default for generated workbench pages",
+        "nav_content_width_reference": 148,
+        "nav_content_width_rule": "fill available sidebar width minus inner padding; preserve rhythm and alignment rather than fixed width",
+        "nav_top_offset": 72,
+        "nav_vertical_gap": 12,
+        "top_level_padding": "10px 16px",
+        "top_level_padding_compact": "10px 14px",
+        "top_level_icon": 16,
+        "top_level_icon_alt": "17; observed once",
+        "top_level_icon_text_gap": 8,
+        "top_level_label_width_reference": 62,
+        "top_level_label_rule": "fill remaining width; do not clip labels; widen, collapse, or truncate with tooltip",
+        "top_level_arrow_gap": 24,
+        "arrow_wrapper": 10,
+        "arrow_glyph": {"width": 4, "height": 8},
+        "selected_sub_item_width_reference": 140,
+        "selected_sub_item_width_rule": "fill available nav content width; preserve white surface and red marker",
+        "selected_sub_item_padding": "10px 16px",
+        "selected_marker": {"width": 4, "height": 4, "radius": 3},
+        "selected_marker_text_gap": 13,
+        "plain_sub_item_padding": "10px 40px",
+        "plain_sub_item_padding_compact": "10px 39px",
+        "item_radius": 4
+      },
+      "properties": ["level", "selected", "expanded", "collapsed", "icon", "arrow", "active_marker"],
+      "usage_rules": ["Use #FFFFFF as the navigation surface when the right content area also uses light cards.", "Use sidebar_elevated shadow or a clear divider so the left navigation and right content hierarchy are separated.", "Use #F5F7F9 as app background behind elevated surfaces.", "Use #FFFFFF for selected sub-item background.", "Use #FF1432 for selected sub-item marker.", "Use 12px PingFang SC navigation labels.", "Use #000000 for navigation text.", "Use #383838 for neutral vector icons.", "Use Auto Layout for the navigation column and each menu item.", "Use adaptive width, collapsed mode, or truncation with tooltip for long labels.", "On generated desktop workbench pages, prefer 200-256px sidebar width; on high-resolution pages, use 240px or more when it improves hierarchy and spacing."],
+      "anti_patterns": ["Do not leave the sidebar as flat gray-on-gray when the content area is also gray; add white surface, shadow, divider, or spacing.", "Do not use 160px as the default generated sidebar width for broad desktop pages.", "Do not force every future sidebar to 160px.", "Do not clip Chinese labels to preserve observed reference widths.", "Do not squeeze the content gap below 24px on wide pages.", "Do not use #222222 as selected background in this sidebar style.", "Do not replace the 4px red selected dot with a full-height bar unless a future Figma source confirms that variant.", "Do not use oversized icons or 14px labels for this navigation style."]
+    },
+    {
+      "name": "TopNavigation",
+      "description": "Top application header for page title, global actions, user identity, and optional horizontal menu.",
+      "variants": ["page title with actions", "horizontal menu", "user area", "breadcrumb/title hybrid; TODO: confirm"],
+      "states": ["default", "active menu item; TODO: confirm", "hover; TODO: confirm", "disabled; TODO: confirm"],
+      "sizes": {
+        "height_reference": 64,
+        "horizontal_padding": "24px 32px",
+        "action_gap": 16,
+        "title_font_size": 16,
+        "title_line_height": 24,
+        "avatar_size": "32; TODO: confirm from source"
+      },
+      "properties": ["title", "menu_items", "actions", "user", "active_item", "avatar"],
+      "usage_rules": ["Use TopNavigation when a page has global actions such as create task, user profile, or horizontal menu.", "Keep top navigation on a white or clearly separated surface.", "Separate it from content with subtle border or topbar_subtle shadow.", "Keep page title on the left and global actions/user area on the right for workbench pages.", "Use #222222 for primary action buttons in the topbar."],
+      "anti_patterns": ["Do not let content start at the very top without a header when the page has global actions.", "Do not mix top navigation and page section tabs without clear hierarchy.", "Do not make the topbar visually heavier than the main page content."]
+    },
+    {
+      "name": "Drawer",
+      "description": "Contextual side workflow container observed in task recommendation and communication follow-up flows.",
+      "variants": ["form drawer", "task drawer", "detail drawer"],
+      "states": ["open", "close", "loading; TODO: confirm", "error; TODO: confirm"],
+      "sizes": {
+        "width": "TODO: confirm",
+        "header_height": "TODO: confirm",
+        "footer_height": "TODO: confirm"
+      },
+      "properties": ["title", "closable", "footer", "mask", "width"],
+      "usage_rules": ["Use for contextual side workflows that should keep the user in the current page.", "Structure content into clear sections.", "Use forms, descriptions, alerts, and action footer as needed."],
+      "anti_patterns": ["Do not use Dialog for long side workflows that match Drawer behavior."]
+    }
+  ]
+}

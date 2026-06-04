@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "name": "AiOMP / IS RB Page Patterns",
+    "status": "figma-observed-with-todo-confirmations"
+  },
+  "patterns": {
+    "dashboard": {
+      "description": "Workbench-style page for metrics and operational data.",
+      "structure": ["sidebar navigation", "top navigation", "main content", "metric cards", "section title", "tabs or filters", "table", "pagination"],
+      "layout_rules": ["Sidebar width is adaptive; 160px is a historical narrow reference, not the generated default.", "Use SidebarNavigation component rules for vertical menu styling.", "Generated desktop workbench pages should prefer 200-256px sidebar width; high-resolution pages should use 240px or more when labels and hierarchy benefit.", "Sidebar must be an elevated or clearly separated surface, using shadow, divider, or sufficient spacing.", "Use TopNavigation when the page has global actions, user profile, or horizontal menu.", "Main content starts after a sidebar gap; use at least 24px on wide pages and 32px on extra-wide pages when space allows.", "Metrics appear above the primary table.", "Table and pagination are visually connected."],
+      "spacing_rules": ["Use compact vertical rhythm.", "Use table default height 40px.", "Pagination area is approximately 64px.", "Use 24px content/sidebar gap on normal desktop workbench pages.", "Use 32px content/sidebar gap on high-resolution pages when the content still reads as connected."],
+      "information_hierarchy": ["Metric numbers are visually strongest.", "Business title anchors the table section.", "Filters/tabs sit before the table."],
+      "todos": ["TODO: confirm responsive behavior for dashboard content."]
+    },
+    "list": {
+      "description": "Table-first page for browsing, searching, filtering, and acting on records.",
+      "structure": ["page title", "search/filter row", "toolbar or tabs", "table", "pagination"],
+      "layout_rules": ["Use 40px table header and row height by default.", "Use visible filter and sort affordances in table headers.", "Use Tooltip for truncated values."],
+      "spacing_rules": ["Keep controls compact.", "Keep pagination attached to the table."],
+      "information_hierarchy": ["Search/filter controls precede table data.", "Active filters should be visible and clearable."],
+      "todos": ["TODO: confirm standard toolbar button order."]
+    },
+    "detail": {
+      "description": "Business record detail page with status, descriptions, related information, and optional timeline or steps.",
+      "structure": ["header", "status tags", "description sections", "related panels", "timeline or steps", "actions"],
+      "layout_rules": ["Use sectioned information blocks.", "Use tags for business status and classification.", "Keep related information grouped in panels."],
+      "spacing_rules": ["Use compact business spacing.", "TODO: confirm detail section spacing."],
+      "information_hierarchy": ["Record title and status appear first.", "Primary details precede related panels."],
+      "todos": ["TODO: confirm detail page action placement rules."]
+    },
+    "form": {
+      "description": "Structured data entry page or module.",
+      "structure": ["form section", "label", "control", "help tooltip", "validation message", "action buttons"],
+      "layout_rules": ["Use 80px label width by default.", "Use 16px label-control gap.", "Support right, left, top, vertical, and inline layouts.", "Required marker uses #FF1432."],
+      "spacing_rules": ["Use 24px form item vertical gap.", "Inline layout gap observed around 120px; TODO: confirm production use."],
+      "information_hierarchy": ["Labels identify fields.", "Validation appears near the related control.", "Footer actions complete the form flow."],
+      "todos": ["TODO: confirm default form control width."]
+    },
+    "settings": {
+      "description": "Settings pattern was not directly observed.",
+      "structure": ["category navigation; TODO: confirm", "grouped settings form; TODO: confirm", "save/cancel footer; TODO: confirm"],
+      "layout_rules": ["Use form rules if settings are form-based.", "TODO: confirm with real Settings page."],
+      "spacing_rules": ["TODO: confirm"],
+      "information_hierarchy": ["TODO: confirm"],
+      "todos": ["TODO: confirm complete settings page pattern."]
+    },
+    "modal": {
+      "description": "Dialog modal for temporary focused user response.",
+      "structure": ["mask", "dialog surface", "header", "content", "footer"],
+      "layout_rules": ["Default width is 480px.", "Custom normal width range is 480px to 960px.", "Basic dialog padding is 32px.", "Footer actions are right aligned with 8px gap.", "Dialog radius is 9px."],
+      "spacing_rules": ["Separator dialogs use approximately 24px 32px header/footer padding.", "Content spacing before footer is commonly 24px."],
+      "information_hierarchy": ["Title appears in header.", "Content explains the decision or information.", "Footer contains final actions."],
+      "todos": ["TODO: confirm overlay opacity."]
+    },
+    "drawer": {
+      "description": "Side panel for contextual workflows such as task recommendation and communication follow-up.",
+      "structure": ["drawer header", "sectioned content", "form or descriptions", "alerts or hints", "footer actions"],
+      "layout_rules": ["Use Drawer instead of Dialog for long contextual side workflows.", "Keep content sectioned.", "Use forms and descriptions inside drawer as needed."],
+      "spacing_rules": ["TODO: confirm drawer padding, width, header height, and footer height."],
+      "information_hierarchy": ["Drawer title identifies the workflow.", "Primary fields/content appear first.", "Footer actions complete or cancel the workflow."],
+      "todos": ["TODO: confirm dedicated Drawer component documentation."]
+    },
+    "sidebar_navigation": {
+      "description": "Persistent left navigation module observed in the workbench dashboard.",
+      "structure": ["navigation column", "top-level menu item", "collapse arrow", "sub-menu item", "selected marker"],
+      "layout_rules": ["Sidebar area width is adaptive; use 192px minimum, 200-256px preferred desktop width, and 240px+ on high-resolution pages when labels need room.", "160px is a historical narrow reference only.", "Navigation content column fills available sidebar width minus inner padding.", "Navigation column uses 12px vertical gap.", "Top-level items use icon + label + optional arrow.", "Selected sub-item fills available navigation content width and uses white background with 4px red dot marker.", "Long labels must not be clipped; use adaptive width, collapsed mode, or documented truncation with tooltip.", "Sidebar must not visually merge into the page background; use white surface plus sidebar_elevated shadow or a divider."],
+      "spacing_rules": ["Top-level item padding is 10px 16px; 10px 14px is compact mode only.", "Selected sub-item padding is 10px 16px.", "Plain sub-item padding is 10px 40px; 10px 39px is compact historical reference.", "Icon/text gap is 8px.", "Selected marker/text gap is 13px.", "Top-level arrow gap is 24px.", "Content/sidebar gap should be 24px on desktop and may increase to 32px on high-resolution pages."],
+      "information_hierarchy": ["Top-level groups carry icons and optional arrows.", "Sub-items are text-only.", "Current page is indicated by white selection surface plus red marker."],
+      "todos": ["TODO: confirm hover state.", "TODO: confirm collapsed sidebar variant.", "TODO: confirm selected top-level state."]
+    },
+    "top_navigation": {
+      "description": "Top application header used for page title, global actions, user identity, and optional horizontal menu.",
+      "structure": ["title or menu region", "spacer", "primary action", "secondary actions", "user name", "avatar"],
+      "layout_rules": ["Use a white or clearly separated topbar surface.", "Use subtle bottom divider or topbar_subtle shadow.", "Left side carries page identity or horizontal menu.", "Right side carries global actions and user identity.", "Keep topbar visually lighter than the content cards and table modules."],
+      "spacing_rules": ["Height reference is 64px.", "Horizontal padding reference is 24px 32px.", "Action gap reference is 16px.", "Values are references and may adapt to page density."],
+      "information_hierarchy": ["Page title or active horizontal menu anchors the current context.", "Primary global action appears on the right.", "User identity is last in the right cluster."],
+      "todos": ["TODO: confirm exact top navigation dimensions from IS RB node 932:27490 and Element Plus node 9304:177289."]
+    },
+    "table_module": {
+      "description": "Reusable table region used in dashboard and list pages.",
+      "structure": ["optional toolbar", "table header", "table body", "pagination", "filter dropdowns"],
+      "layout_rules": ["Header and row default height is 40px.", "Density variants are 36px, 46px, and 54px.", "Use row hover state.", "Use loading state without collapsing table shell."],
+      "spacing_rules": ["Pagination area is approximately 64px.", "Filter dropdown inner padding observed around 12px."],
+      "information_hierarchy": ["Header labels define data structure.", "Rows carry scannable values.", "Pagination and total count close the module."],
+      "todos": ["TODO: confirm empty-state illustration and copy."]
+    }
+  }
+}

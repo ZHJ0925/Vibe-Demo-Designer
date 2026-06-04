@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "name": "AiOMP / IS RB Icon Rules",
+    "status": "partial; Figma MCP read for AiOMP icon node timed out on 2026-05-28",
+    "source_nodes": [
+      {
+        "file": "AiOMP Design for web组件",
+        "fileKey": "A6aytsHnbLQWUUzhlm3bLO",
+        "nodeId": "24787:128400",
+        "status": "TODO: confirm icon inventory from Figma MCP"
+      },
+      {
+        "file": "Element Plus Design System Components Community",
+        "fileKey": "gvnxsWrEabaxX3tarlDFiM",
+        "nodeId": "14386:230760",
+        "status": "TODO: confirm icon inventory from Figma MCP"
+      },
+      {
+        "file": "Element Plus Design System Components Community",
+        "fileKey": "gvnxsWrEabaxX3tarlDFiM",
+        "nodeId": "9178:169254",
+        "status": "TODO: confirm left menu layout/icon behavior from Figma MCP"
+      },
+      {
+        "file": "Element Plus Design System Components Community",
+        "fileKey": "gvnxsWrEabaxX3tarlDFiM",
+        "nodeId": "9181:170196",
+        "status": "TODO: confirm adaptive menu layout/icon behavior from Figma MCP"
+      },
+      {
+        "file": "看板工作台 UI改版 Copy",
+        "fileKey": "JJwJl1p4czTdQFfJFD4yrj",
+        "nodeId": "5034:14262",
+        "status": "sidebar icon usage observed previously"
+      }
+    ],
+    "rule": "Do not invent icons. Use confirmed Figma library icons or report TODO: confirm icon."
+  },
+  "sizes": {
+    "tag": 14,
+    "default": 16,
+    "sidebar": 16,
+    "sidebar_exception": "17 observed once; do not use as default",
+    "sidebar_arrow_wrapper": 10,
+    "sidebar_arrow_glyph": {
+      "width": 4,
+      "height": 8
+    },
+    "alert": 20,
+    "message": 20,
+    "dialog_status": 24
+  },
+  "colors": {
+    "sidebar_neutral": "#383838",
+    "nav_text": "#000000",
+    "semantic_info": "#0052D9",
+    "semantic_success": "#3BD183",
+    "semantic_warning": "#FE8744",
+    "semantic_error": "#FF1432"
+  },
+  "usage_rules": [
+    "Use confirmed Figma component-library icons before any other source.",
+    "If no matching library icon is confirmed, report TODO: confirm icon instead of drawing a new icon.",
+    "Element Plus icons may be used as a reference source only after their Figma node inventory is confirmed.",
+    "Keep all icons in one visual style within the same navigation, toolbar, table, or form region.",
+    "Use 16px as default UI/navigation icon size.",
+    "Use 14px icons inside Tag.",
+    "Use 20px status icons in Alert and Message.",
+    "Use 24px status icons in Dialog.",
+    "Use neutral #383838 for sidebar navigation icons unless semantic state requires a confirmed semantic color."
+  ],
+  "anti_patterns": [
+    "Do not generate arbitrary decorative SVG icons.",
+    "Do not mix filled, outlined, multicolor, and hand-drawn styles in one UI area unless the source library confirms it.",
+    "Do not resize icons freely to make spacing work.",
+    "Do not use emoji as icons in product UI.",
+    "Do not infer icon meaning from label text when the icon has not been confirmed in the Figma icon library."
+  ],
+  "inventory": {
+    "confirmed_from_sidebar": [
+      {
+        "name": "Icon/Workbench",
+        "label": "看板工作台",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/OrderCenter",
+        "label": "订单中心",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/Process",
+        "label": "我的流程 / 流程管理",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/Store",
+        "label": "门店信息",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/Opportunity",
+        "label": "商机管理",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/TestDrive",
+        "label": "试驾管理",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/InternalVehicle",
+        "label": "内部车辆",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/SalesStrategy",
+        "label": "销售策略",
+        "size": 16,
+        "status": "observed"
+      },
+      {
+        "name": "Icon/CollapseArrow",
+        "label": "折叠箭头",
+        "size": {
+          "wrapper": 10,
+          "glyph_width": 4,
+          "glyph_height": 8
+        },
+        "status": "observed"
+      }
+    ],
+    "todo_confirm_from_icon_library": [
+      "TODO: confirm full icon component names from AiOMP Design for web组件 node 24787:128400",
+      "TODO: confirm full icon component names from Element Plus node 14386:230760",
+      "TODO: confirm icon variants, stroke width, corner style, and filled/outlined rules",
+      "TODO: confirm whether action/table/form icons use the same 16px base grid"
+    ]
+  }
+}
