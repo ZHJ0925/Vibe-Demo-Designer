@@ -1,4 +1,4 @@
-# 向产品经理和 UX 设计师的高质量 AI Demo 页面生成 Skill
+# 面向产品经理和 UX 设计师的高质量 AI Demo 页面生成 Skill
 
 ## 一、Skill 定位
 
